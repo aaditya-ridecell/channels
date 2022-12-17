@@ -24,7 +24,12 @@ class Command(BaseCommand):
             default=DEFAULT_CHANNEL_LAYER,
             help="Channel layer alias to use, if not the default.",
         )
-        parser.add_argument("channels", nargs="+", help="Channels to listen on.")
+        parser.add_argument(
+            '--threads', action='store', dest='threads',
+            default=1, type=int,
+            help='Number of threads to execute.'
+        )
+        parser.add_argument("channels", nargs="+", help="Channels to listen on.", default=['notifications', 'chat-test'])
 
     def handle(self, *args, **options):
         # Get the backend to use
