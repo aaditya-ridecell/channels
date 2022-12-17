@@ -29,7 +29,7 @@ class Command(BaseCommand):
             default=1, type=int,
             help='Number of threads to execute.'
         )
-        parser.add_argument("channels", nargs="+", help="Channels to listen on.", default=['notifications', 'chat-test'])
+        parser.add_argument("--channels", help="Channels to listen on.", default=['notifications', 'chat-test'])
 
     def handle(self, *args, **options):
         # Get the backend to use
